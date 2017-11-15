@@ -1,1 +1,65 @@
-贪吃蛇
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 800px;
+            height: 600px;
+            position: relative;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="Food.js"></script>
+    <script src="Snake.js"></script>
+    <script src="Game.js"></script>
+    <script>
+        window.onload = function () {
+            //需求：贪吃蛇，吃食物变长，上下左右改变方向;
+                //思路：利用定时器，删除旧的蛇，画出新的蛇;
+                    //方向：判断上下左右，在x,y坐标上+1或者-1；
+
+            //面向对象编程
+            //1.食物对象(随机位置，重新生成)
+                //a.初始化
+                //b.删除
+            //2.蛇对象(固定位置，移动)
+                //a.初始化
+                //b.删除
+                //c.移动
+            //3.游戏对象(创建，调用开始)
+                //a.开始(对外)
+                //b.定时器移动;
+                //c.按键变向;
+
+
+            //测试;
+//            var map = document.getElementById("map");
+
+//            var food = new Food();
+//            food.init(map);
+//
+//            var snake = new Snake();
+//            snake.init(map);
+//
+//            document.onclick = function () {
+//                snake.move(map,food);
+//            }
+            
+
+            //真正测试：
+            var map = document.getElementById("map");
+            var game = new Game(map);
+            game.start();
+
+
+        }
+    </script>
+</head>
+<body>
+
+    <div id="map"></div>
+
+</body>
+</html>
