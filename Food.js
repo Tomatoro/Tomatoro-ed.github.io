@@ -1,54 +1,37 @@
 /**
- * Created by Lenovo on 2017/9/12.
+ * Created by 84295 on 17/9/16.
  */
-//±ÜÃâÎÛÈ¾È«¾Ö±äÁ¿
-(function () {
-    //1.Ê³Îï¶ÔÏó(Ëæ»úÎ»ÖÃ£¬ÖØĞÂÉú³É)
-    //a.³õÊ¼»¯
-    //b.É¾³ı
-
-    //1.Ê³Îï¶ÔÏó(Ëæ»úÎ»ÖÃ£¬ÖØĞÂÉú³É)
-    function Food(width,height,top,left,color){//1.¿í¸ß;  2.Î»ÖÃ;   3.ÑÕÉ«;
-        //Ä¬ÈÏÖµ
-        this.width = width || 20;
+    //éœ€è¦ä¸€ä¸ªé£Ÿç‰©å¯¹è±¡;
+(function(window){
+    function Food (width,height,top,left,bg){
+        this.width=width ||20 ;
         this.height = height || 20;
         this.top = top || 0;
         this.left = left || 0;
-        this.color = color || "green";
-    }
+        this.bg=bg ||"#984ACC";
 
-    //a.³õÊ¼»¯£¨·Åµ½mapÖĞ£©
-    var div = null;
-    Food.prototype.init = function (map) {
-        //É¾³ıÀÏµÄ£¬ÔÚÉú³ÉĞÂµÄ;
-        remove(map);
-        //´´½¨div£¬×÷ÎªÊ³Îï£¬¸ø¶¨ÑùÊ½
-        div = document.createElement("div");
-        div.style.width = this.width+"px";
-        div.style.height = this.height+"px";
-        div.style.background = this.color;
-        //Î»ÖÃ£¡£¡£¡(Ëæ»ú)£¨½ø×¼¸³Öµ£©(20Îªµ¥Î»)
+    }
+    var newDiv = null;
+    Food.prototype.inn= function (map) {
+        removeFood(map);
+        newDiv = document.createElement("div");
+
+        newDiv.style.width = this.width +"px";
+        newDiv.style.height =  this.height +"px";
+        newDiv.style.backgroundColor =this.bg;
         this.top = parseInt(Math.random()*(map.offsetHeight-this.height)/this.height)*this.height;
         this.left = parseInt(Math.random()*(map.offsetWidth-this.width)/this.width)*this.width;
-        //this.top = 40;
-        //this.left = 200;
-        div.style.top = this.top +"px";
-        div.style.left = this.left +"px";
-        //¶¨Î»
-        div.style.position = "absolute";
-
-        //·ÅÈëµ½mapÖĞ
-        map.appendChild(div);
+        newDiv.style.top = this.top+"px";
+        newDiv.style.left = this.left+"px";
+        newDiv.style.borderRadius = 5+"px";
+        newDiv.style.position ="absolute";
+        map.appendChild(newDiv);
     }
-
-    //b.É¾³ı£¨Ë½ÓĞ£¬×Ô¼ºÓÃ£©
-    function remove(map){//´ÓmapÖĞ°ÑdivÒÆ³ı
-        //Èç¹ûÃ»ÓĞ¾Í²»É¾³ı
-        if(div != null){
-            map.removeChild(div);
+    function removeFood(map){
+        if(newDiv != null){
+            map.removeChild(newDiv);
         }
     }
 
-    //±©Â¶¸øÈ«¾Ö
     window.Food = Food;
-})();
+})(window);

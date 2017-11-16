@@ -4,62 +4,51 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        div {
+        #map {
             width: 800px;
             height: 600px;
+            margin: 0 auto;
             position: relative;
             background-color: #ccc;
         }
     </style>
+
+</head>
+<body>
+    <div id="map"></div>
     <script src="Food.js"></script>
     <script src="Snake.js"></script>
     <script src="Game.js"></script>
-    <script>
-        window.onload = function () {
-            //需求：贪吃蛇，吃食物变长，上下左右改变方向;
-                //思路：利用定时器，删除旧的蛇，画出新的蛇;
-                    //方向：判断上下左右，在x,y坐标上+1或者-1；
+<script>
 
-            //面向对象编程
-            //1.食物对象(随机位置，重新生成)
-                //a.初始化
-                //b.删除
-            //2.蛇对象(固定位置，移动)
-                //a.初始化
-                //b.删除
-                //c.移动
-            //3.游戏对象(创建，调用开始)
-                //a.开始(对外)
-                //b.定时器移动;
-                //c.按键变向;
+    var map = document.getElementById("map");
+    var game =new Game(map);
+    game.start();
 
-
-            //测试;
-//            var map = document.getElementById("map");
-
-//            var food = new Food();
-//            food.init(map);
+//    //1 定义food
+//    var map = document.getElementById("map");
+//    var food = new Food("20","20","#984ACC");
+//    food.inn(map);
+//    //2 定义snake
+//    var snake = new Snake();
+//    snake.inn(map);
+//    document.onclick=function(){
 //
-//            var snake = new Snake();
-//            snake.init(map);
-//
-//            document.onclick = function () {
-//                snake.move(map,food);
-//            }
-            
-
-            //真正测试：
-            var map = document.getElementById("map");
-            var game = new Game(map);
-            game.start();
+//        snake.move(map,food);
+//    }
 
 
-        }
-    </script>
-</head>
-<body>
+    //自己写的  设置一个定时器 可以实现每隔一秒生成一个新食物
+//    var timer = null;
+//    document.onclick=function(){
+//        clearInterval(timer);
+//        timer=setInterval(function () {
+//            var newFood = food;
+//            newFood.inn(map);
+//        },1000);
+//    }
+</script>
 
-    <div id="map"></div>
 
 </body>
 </html>

@@ -1,75 +1,59 @@
 /**
- * Created by Lenovo on 2017/9/12.
+ * Created by 84295 on 17/9/16.
  */
-//±ÜÃâÎÛÈ¾È«¾Ö±äÁ¿
+
+
 (function () {
-    //2.Éß¶ÔÏó(¹Ì¶¨Î»ÖÃ£¬ÒÆ¶¯)
-        //a.³õÊ¼»¯
-        //b.É¾³ı
-        //c.ÒÆ¶¯
 
-
-    //2.Éß¶ÔÏó(¹Ì¶¨Î»ÖÃ£¬ÒÆ¶¯)
-    function Snake(width,height,direction){//1.¿í¸ß;   2.ÉíÌå(¶ÔÏó-Î»ÖÃºÍÑÕÉ«)   3.·½Ïò
+    function Snake(width, height, direction) {
         this.width = width || 20;
         this.height = height || 20;
         this.body = [
-            //Î»ÖÃºÍÑÕÉ«£º
-            {top: 2,left: 3,color:"red"},//Í·
-            {top: 2,left: 2,color:"orange"},//ÉíÌå
-            {top: 2,left: 1,color:"orange"} //ÉíÌå
-        ];//Êı×é×é³É£¬ÀïÃæ¶¼ÊÇ¶ÔÏó
+            {top: 2, left: 4, color: "#CC3367"},
+            {top: 2, left: 3, color: "#2088A1"},
+            {top: 2, left: 2, color: "#2088A1"}
+        ];
         this.direction = direction || "right";
     }
 
-    //a.³õÊ¼»¯(É¾³ı¾ÉµÄ£¬·ÅÈëmap)
     var arr = [];
-    Snake.prototype.init = function (map) {
-        //É¾³ı¾ÉµÄ
-        remove(map);
-        //Éú³ÉºÜ¶àdiv·ÅÈëmap£¬ÒòÎª²»ÖªÒ»¸öÉíÌå;
-        for(var i=0;i<this.body.length;i++){
-            var div = document.createElement("div");
-            div.style.width = this.width +"px";
-            div.style.height = this.height +"px";
-            //Î»ÖÃĞ´ÉÏ£¬·½ÏòÏÖÔÚ²»ÓÃ;
-            div.style.top = this.body[i].top*this.height+"px";
-            div.style.left = this.body[i].left*this.width+"px";
-            //±³¾°É«ºÍ¶¨Î»
-            div.style.background = this.body[i].color;
-            div.style.position = "absolute";
-            //Ìí¼Óµ½mapÖĞ
-            map.appendChild(div);
-            arr.push(div);
-        }
+    Snake.prototype.inn = function (map) {
+        removeSnake(map);
+        for (var i = 0; i < this.body.length; i++) {
+            var newDiv = document.createElement("div");
+            newDiv.style.width = this.width + "px";
+            newDiv.style.height = this.height + "px";
+            newDiv.style.position = "absolute";
+            newDiv.style.top = this.body[i].top * this.height + "px";
+            newDiv.style.left = this.body[i].left * this.width + "px";
+            newDiv.style.backgroundColor = this.body[i].color;
+            newDiv.style.borderRadius = 5 + "px";
 
+            map.appendChild(newDiv);
+            arr.push(newDiv);
+
+        }
     }
 
-    //b.É¾³ı(Ë½ÓĞ)
-    function remove(map){
-        //É¾³ıµÄ²»ÊÇÒ»¸ö
-        for(var i=0;i<arr.length;i++){
+    function removeSnake(map) {
+        for (var i = 0; i < arr.length; i++) {
             map.removeChild(arr[0]);
             arr.shift();
             i--;
         }
+
     }
 
-    //c.ÒÆ¶¯(É¾³ı¾ÉµÄÉß£¬»­³öĞÂµÄÉß;)
-    Snake.prototype.move = function (map,food) {
-        //É¾³ı¾ÉµÄÉß
-        remove(map);
-
-        //µÚ¶ş¸ö¿ªÊ¼ºóÃæµÄ¼Ì³ĞÇ°ÃæµÄÎ»ÖÃ;   µÚÒ»¸öÓÉ·½Ïò¾ö¶¨£¬xyÖµ+1/-1;
-        //a.´ÓºóÍùÇ°;     b.°ÑÇ°ÃæµÄ¸³Öµ¸øºóÃæ;   c.µÚÒ»¸ö²»Ëã;
-        for(var i=this.body.length-1;i>=1;i--){
-            //b.°ÑÇ°ÃæµÄ¸³Öµ¸øºóÃæ;
-            this.body[i].top = this.body[i-1].top;
-            this.body[i].left = this.body[i-1].left;
+    Snake.prototype.move = function (map, food) {
+        //åˆ é™¤æ—§è›‡
+        removeSnake(map);
+        //èº«ä½“çš„ä½ç½®
+        for (var i = this.body.length - 1; i >= 1; i--) {
+            this.body[i].left = this.body[i - 1].left;
+            this.body[i].top = this.body[i - 1].top;
         }
-
-        //µÚÒ»¸öÓÉ·½Ïò¾ö¶¨£¬xyÖµ+1/-1;
-        switch (this.direction){
+        //å¤´çš„ä½ç½®
+        switch (this.direction) {
             case "right":
                 this.body[0].left += 1;
                 break;
@@ -83,29 +67,27 @@
                 this.body[0].top += 1;
                 break;
         }
+        //åƒé£Ÿç‰© èº«ä½“çš„å˜åŒ–
+        var headx = this.body[0].left * this.width;
+        var heady = this.body[0].top * this.height;
+        var last = this.body[this.body.length - 1];
 
-        //³Ôµ½Ê³ÎïÔõÃ´°ì
-            //Ê³ÎïºÍÍ·×ø±êÏàÍ¬
-        var headx = this.body[0].left*this.width;//³Ë¿í
-        var heady = this.body[0].top*this.height;//³Ë¸ß
-        if(food.left==headx && food.top == heady){
-            //ÖØĞÂÉú³ÉÊ³Îï;
-            food.init(map);
-            //ÔÚÉßµÄÉíÌåµÄ×îÄ©Î²Ìí¼ÓÒ»²¿·Ö;£¨ºÍ×îºóÒ»²¿·Ö²ÎÊıÏàÍ¬£©
-            var last = this.body[this.body.length-1];
+        if (headx == food.left && heady == food.top) {
+            food.inn(map);
             var obj = {
                 top: last.top,
                 left: last.left,
-                color:last.color
+                color: last.color
             };
+
             this.body.push(obj);
         }
+        //ç”Ÿæˆä¸€ä¸ªæ–°è›‡
+        this.inn(map);
 
-        //»­³öĞÂµÄÉß
-        this.init(map);
     }
 
 
-    //±©Â¶¸øÈ«¾Ö
     window.Snake = Snake;
-})();
+
+})()
