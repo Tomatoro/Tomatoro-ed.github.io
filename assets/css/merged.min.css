@@ -3729,34 +3729,34 @@ body.page-loading-step3 .nav-item:nth-child(7) .nav-bar {
 #bgimg1 {
   width: 440px;
   height: 600px;
-  background: url(../img/page11.jpeg) no-repeat center;
-  background-size: cover
-}
-
-#bgimg5 {
-  width: 440px;
-  height: 600px;
-  background: url(../img/20130929194430_deXdT.thumb.700_0.jpeg) no-repeat center;
+  background: url(../img/page1.jpeg) no-repeat center;
   background-size: cover
 }
 
 #bgimg2 {
   width: 440px;
   height: 600px;
-  background: url(../img/20140830091503_dukjK.thumb.700_0.png) no-repeat center;
-  background-size: cover
-}
-
-#bgimg4 {
-  width: 440px;
-  height: 600px;
-  background: url(../img/20150414H4009_muLaW.thumb.700_0.jpeg) no-repeat center;
+  background: url(../img/page2.png) no-repeat center;
   background-size: cover
 }
 
 #bgimg3 {
   width: 440px;
   height: 600px;
-  background: url(../img/page15.jpeg) no-repeat center;
+  background: url(../img/page3.jpeg) no-repeat center;
+  background-size: cover
+}
+
+#bgimg4 {
+  width: 440px;
+  height: 600px;
+  background: url(../img/page4.jpeg) no-repeat center;
+  background-size: cover
+}
+
+#bgimg5 {
+  width: 440px;
+  height: 600px;
+  background: url(../img/page5.jpeg) no-repeat center;
   background-size: cover
 }
