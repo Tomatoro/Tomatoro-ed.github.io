@@ -1001,7 +1001,7 @@ body.author-opened-step2 #signature-hover {
 
 #slider-intro-book img {
   position: absolute;
-  left: 20%;
+  left: 0;
   top: 50%;
   width: auto;
   height: 85%;
@@ -2158,11 +2158,11 @@ html:not(.html-index) body.page-loading-step2:not(.page-transition-step2) #page-
 
 .opacity-70,
 .slider-video {
-  opacity: .7;
+  opacity: 1;
   filter: alpha(opacity=70);
   -ms-filter: "prodig:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-  -moz-opacity: .7;
-  -khtml-opacity: .7
+  -moz-opacity: 1;
+  -khtml-opacity: 1
 }
 
 .opacity-80,
@@ -2322,7 +2322,7 @@ body.page-loading-step1 #shop-align.opacity-0 {
     width: 80%;
     height: auto;
     max-height: none;
-    margin-left: 5%
+    /* margin-left: 5% */
   }
 }
 
@@ -3727,36 +3727,36 @@ body.page-loading-step3 .nav-item:nth-child(7) .nav-bar {
 }
 
 #bgimg1 {
-  width: 440px;
-  height: 600px;
-  background: url(../img/page1.jpeg) no-repeat center;
+  width: 550px;
+  height: 750px;
+  background: url(../img/page1.jpg) no-repeat center;
   background-size: cover
 }
 
 #bgimg2 {
-  width: 440px;
-  height: 600px;
-  background: url(../img/page2.png) no-repeat center;
+  width: 550px;
+  height: 750px;
+  background: url(../img/page2.jpg) no-repeat center;
   background-size: cover
 }
 
 #bgimg3 {
-  width: 440px;
-  height: 600px;
-  background: url(../img/page3.jpeg) no-repeat center;
+  width: 550px;
+  height: 750px;
+  background: url(../img/page3.jpg) no-repeat center;
   background-size: cover
 }
 
 #bgimg4 {
-  width: 440px;
-  height: 600px;
-  background: url(../img/page4.jpeg) no-repeat center;
+  width: 550px;
+  height: 750px;
+  background: url(../img/page4.jpg) no-repeat center;
   background-size: cover
 }
 
 #bgimg5 {
-  width: 440px;
-  height: 600px;
-  background: url(../img/page5.jpeg) no-repeat center;
+  width: 550px;
+  height: 750px;
+  background: url(../img/page5.jpg) no-repeat center;
   background-size: cover
 }
